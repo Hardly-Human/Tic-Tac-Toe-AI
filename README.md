@@ -6,11 +6,12 @@ This Project is Implemented as part of course work for CLCM3505 - Introduction t
 
 ```
   | - README.md
+  | - create-docker-image.sh               # Instructions to create Docker image
   | - application-code |
                        | - Dockerfile
                        | - requirements.txt
                        | - src |
-                               | - tic-tac-toe-2-AI.py
+                               | - tic-tac-toe-2-AI.py     # Python Code
 
   | - terraform-code   |
                        | - main.tf
