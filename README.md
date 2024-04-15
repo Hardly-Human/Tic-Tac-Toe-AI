@@ -45,3 +45,11 @@ This Project is Implemented as part of course work for CLCM3505 - Introduction t
 - Then `pod.yaml` from EC2 module to EC2 instance `/tmp/pod.yaml` location.
 - Then run the `kubectl` commands to run the pod and get the logs of pod.
 - The overall output of the Terraform module is the `public IP` of the EC2 instance.
+
+### Infrastructure in AWS
+
+![project-vpc](https://github.com/shaik-rehan-uddin/tic-tac-toc-AI/assets/144375108/84aab23a-5c35-49c4-85b8-ebef59f50972)
+
+### Demo
+
+[![](https://markdown-videos-api.jorgenkh.no/youtube/QZsWBWRKUaI)](https://youtu.be/QZsWBWRKUaI)
