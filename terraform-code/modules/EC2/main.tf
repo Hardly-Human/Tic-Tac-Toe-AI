@@ -46,3 +46,41 @@ resource "aws_security_group" "instance_security_group" {
     Name = "application_server_security_group"
   }
 }
+
+# Wait for 2 minutes
+resource "null_resource" "wait_2_minutes" {
+  depends_on = [aws_instance.main]
+
+  provisioner "local-exec" {
+    command = "sleep 120"
+  }
+}
+
+# Copy pod.yaml file to EC2 instance
+resource "null_resource" "copy_pod_yaml" {
+  depends_on = [null_resource.wait_2_minutes]
+
+  provisioner "local-exec" {
+    command = "scp -i ${path.module}/Project-Application-Server.pem -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null ${path.module}/pod.yaml ubuntu@${aws_instance.main.public_ip}:/tmp/pod.yaml"
+  }
+}
+
+# Run kubectl commands on EC2 instance
+resource "null_resource" "run_kubectl" {
+  depends_on = [null_resource.copy_pod_yaml]
+
+  connection {
+    type        = "ssh"
+    user        = "ubuntu"
+    private_key = file("${path.module}/Project-Application-Server.pem")
+    host        = aws_instance.main.public_ip
+  }
+
+  provisioner "remote-exec" {
+    inline = [
+      "kubectl apply -f /tmp/pod.yaml",
+      "sleep 30",
+      "kubectl logs -f tic-tac-toe-pod",
+    ]
+  }
+}

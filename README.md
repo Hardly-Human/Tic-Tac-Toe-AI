@@ -5,27 +5,26 @@ This Project is Implemented as part of course work for CLCM3505 - Introduction t
 ## Project Structure
 
 ```
-  | - README.md
-  | - create-docker-image.sh               # Instructions to create Docker image
-  | - application-code |
-                       | - Dockerfile
-                       | - requirements.txt
-                       | - src |
-                               | - tic-tac-toe-2-AI.py     # Python Code
-
-  | - terraform-code   |
-                       | - main.tf
-                       | - outputs.tf
-                       | - modules |
-                                   | - EC2 |
-                                           | - main.tf
-                                           | - outputs.tf
-                                           | - variables.tf
-                                           | - installer.sh
-                                   | - VPC |
-                                           | - main.tf
-                                           | - outputs.tf
-                                           | - variables.tf
+ ├── README.md
+ ├── create-docker-image.sh         # Instruction to create Docker image
+ ├── application-code/
+ │   ├── Dockerfile
+ │   ├── requirements.txt
+ │   └── src/
+ │       └── tic-tac-toe-2-AI.py    # Python Code
+ ├── terraform-code/
+     ├── main.tf
+     ├── outputs.tf
+     └── modules/
+         ├── EC2/
+         │   ├── main.tf
+         │   ├── outputs.tf
+         │   ├── variables.tf
+         │   └── installer.sh
+         └── VPC/
+             ├── main.tf
+             ├── outputs.tf
+             └── variables.tf
 ```
 
 ### Terraform Structure

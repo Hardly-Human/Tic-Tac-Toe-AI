@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: tic-tac-toe-pod
+spec:
+  restartPolicy: Never
+  containers:
+  - name: tic-tac-toe-container
+    image: rshaik921/tic-tac-toe-ai:latest

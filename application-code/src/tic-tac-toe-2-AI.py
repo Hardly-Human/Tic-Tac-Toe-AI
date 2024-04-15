@@ -4,11 +4,14 @@ import re
 import random
 import anthropic
 from openai import OpenAI
+import time 
 
 # Initialize API clients
 client_claude = anthropic.Client(api_key=os.environ.get("ANTHROPIC_API_KEY"))
 client_openai = OpenAI(api_key=os.environ.get("OPENAI_API_KEY"))
 
+# Add a delay between moves
+MOVE_DELAY = 2   # To Avoid API Abuse issue
 
 def claude3_move(board):
     message = json.dumps({"board": board, "current_player": "Claude3AI"})
@@ -127,6 +130,8 @@ def main():
         # Switch player
         current_player = "OpenAI" if current_player == "Claude3AI" else "Claude3AI"
 
+        # Add a delay between moves
+        time.sleep(MOVE_DELAY)
 
 if __name__ == "__main__":
     main()
