@@ -1,7 +1,5 @@
 # TIC-TAC-TOE between 2 AI agents (OPENAI & ANTHROPIC)
 
-This Project is Implemented as part of course work for CLCM3505 - Introduction to Designing Cloud Development and Deployment Environments
-
 ## Project Structure
 
 ```
